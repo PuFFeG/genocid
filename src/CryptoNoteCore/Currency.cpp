@@ -87,8 +87,7 @@ bool Currency::init() {
 bool Currency::generateGenesisBlock() {
   genesisBlockTemplate = boost::value_initialized<BlockTemplate>();
 
-  account_public_address ac = boost::value_initialized<AccountPublicAddress>();
-  std::vector<size_t> sz;
+  CryptoNote::AccountPublicAddress ac = boost::value_initialized<AccountPublicAddress>();
   constructMinerTx(0, 0, 0, 0, 0, ac, genesisBlockTemplate.baseTransaction); // zero fee in genesis
   BinaryArray txb = toBinaryArray(genesisBlockTemplate.baseTransaction);
   std::string hex_tx_represent = Common::toHex(txb);
